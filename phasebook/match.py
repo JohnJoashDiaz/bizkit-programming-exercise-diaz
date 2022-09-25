@@ -33,8 +33,6 @@ def is_match(fave_numbers_1, fave_numbers_2):
         elif (fave_numbers_1[mid]<fave_numbers_2[index]):
             low=mid+1
         else:
-            print("favenum1", fave_numbers_1[mid],"=", fave_numbers_2[index])
-            print("element found at ",mid)
             low = high +1 
             foundstatus= True
             if (foundstatus== True):
@@ -45,7 +43,6 @@ def is_match(fave_numbers_1, fave_numbers_2):
                 if (index > len(fave_numbers_2)-1):
                     return True 
             else:
-                print ("Element", fave_numbers_2[index], " Cannot Be found") 
                 return False
    
 

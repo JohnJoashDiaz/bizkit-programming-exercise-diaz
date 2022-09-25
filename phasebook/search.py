@@ -25,7 +25,6 @@ def search_users(args):
         a list of users that match the search parameters
     """
     args = request.args
-    print (USERS)
     id = args.get('id')
     name = args.get('name')
     age = args.get('age')
@@ -33,31 +32,24 @@ def search_users(args):
     result = []
 
     if request.args == {}:
-        print("no parameters, displaying all users")
         result = USERS
     if 'id' in request.args:
-        print ("searching for id matches")
-        print (args)
         index = 0
         for i in USERS:
             if id in USERS[index]['id']:
                 result.append(USERS[index])
-                print("appending", USERS[index])
                 index+=1
             else:
                 index+=1
     if 'name' in request.args:
-        print ("searching for name matches")
         index = 0
         for i in USERS:
             if name in USERS[index]['name'] or name.capitalize() in USERS[index]['name']:
                 result.append(USERS[index])
-                print("appending", USERS[index])
                 index+=1
             else:
                 index+=1
     if 'age' in request.args:
-        print ("scanning for age matches")
         index = 0
         age_mid = int(age)
         age_low = age_mid -1
@@ -75,7 +67,6 @@ def search_users(args):
             else:
                 index+=1     
     if 'occupation' in request.args:
-        print ("searching for matches in occupation")
         index = 0
         for i in USERS:
             if occupation in USERS[index]['occupation'] or occupation.capitalize() in USERS[index]['occupation']:
